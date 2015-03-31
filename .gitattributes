@@ -17,8 +17,4 @@
 *.RTF	 diff=astextplain
 
 #language setting
-*.rb linguist-language=cpp
-
-Vim
-vim: set filetype=prolog:
-vim: set ft=cpp:
+*.rb linguist-language=c_cpp
