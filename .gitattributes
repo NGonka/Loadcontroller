@@ -18,3 +18,7 @@
 
 #language setting
 *.rb linguist-language=cpp
+
+Vim
+vim: set filetype=prolog:
+vim: set ft=cpp:
