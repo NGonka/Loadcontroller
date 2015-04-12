@@ -10,11 +10,10 @@
 
 #define __AVR_ATmega328p__
 #define __AVR_ATmega328P__
-#define ARDUINO 101
+#define ARDUINO 105
 #define ARDUINO_MAIN
 #define F_CPU 16000000L
 #define __AVR__
-#define __cplusplus
 extern "C" void __cxa_pure_virtual() {;}
 
 float Vref();
@@ -24,4 +23,5 @@ void setCurrent_R(int res);
 
 #include "C:\Program Files (x86)\Arduino\hardware\arduino\variants\standard\pins_arduino.h" 
 #include "C:\Program Files (x86)\Arduino\hardware\arduino\cores\arduino\arduino.h"
-#include "C:\Users\install\ownCloud\Eigenes\Programme\webArduino\lib\Loadcontroller\Loadcontroller.ino"
+#include <Loadcontroller.ino>
+#include <MCP4726_SETUP_VREF.h>

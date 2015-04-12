@@ -1,3 +1,25 @@
+
+
+/*
+To use this sketch you have to change the Adafruit_MCP4725.h Library to use the Vref input as Reference Voltage (here it should be 3.000V)
+
+remove:
+#define MCP4726_CMD_WRITEDAC            (0x40)  // Writes data to the DAC
+
+replace it with:
+
+#if defined(USE_VREF_INPUT)
+#define MCP4726_CMD_WRITEDAC	(0x58)	//Write data to the DAC and uses Vref input#error "Using Pin6 as Vref input"
+#else
+#define MCP4726_CMD_WRITEDAC    (0x40)  // Writes data to the DAC with Vcc as Vref#error "Using Vcc as Vref input"
+#endif
+
+#########
+because of Arduio IDE related problems you need an extra Header file for the Setup (see MCP4726_SETUP.h)
+
+*/
+#include "MCP4726_SETUP_VREF.h"
+
 #include <Wire.h>
 #include <Adafruit_MCP4725.h>
 //#include <math.h>
@@ -11,6 +33,8 @@
 #ifndef sbi
 #define sbi(sfr, bit) (_SFR_BYTE(sfr) |= _BV(bit))
 #endif
+
+
 
 
 bool debug = false;
