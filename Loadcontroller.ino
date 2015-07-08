@@ -52,6 +52,7 @@ int readAnalog;
 int resistance = 200;
 int I_set;
 
+String version = "1.0";
 String msg = "";
 
 const long buad = 9600;
@@ -122,6 +123,9 @@ void setup()
 
 
 	Serial.begin(buad);
+	Serial.println("Loadcontroller");
+	Serial.print("Firmware Version: ");
+	Serial.println(version);
 	Serial.println("Ready");
 
 
@@ -147,6 +151,7 @@ void loop()
 	}
 	Number = msg.substring(1).toInt();
 	msg = msg.substring(0,1);
+	msg.toUpperCase();
 	
 	if (debug)
 	{
@@ -168,7 +173,7 @@ void loop()
 	else if (msg.equals("I"))
 	{
 		float current = Number;
-		I_set = constrain(round(current*1365/1000),0,4095);
+		I_set = constrain(round(1.5*current*1365/1000),0,4095);
 		if (debug)
 		{
 			Serial.print("I_Set_I: ");
